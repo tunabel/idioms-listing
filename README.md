@@ -2,6 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
+Blableblo
+
+Dự án này là để xây dựng một trang web có mục đích chính là chia sẻ và tra cứu các câu thành ngữ tiếng Tây Ban Nha, cùng với dịch nghĩa sang tiếng Việt.
+
+Cấu trúc trang web sẽ bao gồm các bộ phận sau
+1. Trang chủ
+- Nav bar
+- Search bar
+- Random phrase
+2. Danh sách các câu thành ngữ
+3. Thêm thành ngữ
+4. etc.
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
