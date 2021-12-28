@@ -10,6 +10,7 @@ import {IdiomListComponent} from './idioms/idiom-list/idiom-list.component';
 import {IdiomDetailComponent} from './idioms/idiom-detail/idiom-detail.component';
 import {IdiomDailyComponent} from './home/idiom-daily/idiom-daily.component';
 import {IdiomSearchComponent} from './home/idiom-search/idiom-search.component';
+import {IdiomItemComponent} from './idioms/idiom-list/idiom-item/idiom-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {IdiomSearchComponent} from './home/idiom-search/idiom-search.component';
     IdiomListComponent,
     IdiomDetailComponent,
     IdiomDailyComponent,
-    IdiomSearchComponent
+    IdiomSearchComponent,
+    IdiomItemComponent
   ],
   imports: [
     BrowserModule,
