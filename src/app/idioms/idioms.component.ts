@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import IdiomService from "../services/idiom.service";
 
 @Component({
   selector: 'app-idioms',
   templateUrl: './idioms.component.html',
-  styleUrls: ['./idioms.component.css'],
-  providers: [IdiomService]
+  styleUrls: ['./idioms.component.css']
 })
 export class IdiomsComponent implements OnInit {
 

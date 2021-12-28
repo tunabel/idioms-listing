@@ -11,6 +11,10 @@ import {IdiomDetailComponent} from './idioms/idiom-detail/idiom-detail.component
 import {IdiomDailyComponent} from './home/idiom-daily/idiom-daily.component';
 import {IdiomSearchComponent} from './home/idiom-search/idiom-search.component';
 import {IdiomItemComponent} from './idioms/idiom-list/idiom-item/idiom-item.component';
+import {IdiomEditComponent} from './idioms/idiom-edit/idiom-edit.component';
+import {AppRoutingModule} from "./app-routing.module";
+import {AboutUsComponent} from './about-us/about-us.component';
+import IdiomService from "./services/idiom.service";
 
 @NgModule({
   declarations: [
@@ -22,13 +26,17 @@ import {IdiomItemComponent} from './idioms/idiom-list/idiom-item/idiom-item.comp
     IdiomDetailComponent,
     IdiomDailyComponent,
     IdiomSearchComponent,
-    IdiomItemComponent
+    IdiomItemComponent,
+    IdiomEditComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [IdiomService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
