@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Idiom} from "../../idiom.model";
+import IdiomService from "../../../services/idiom.service";
 
 @Component({
   selector: 'app-idiom-item',
@@ -10,10 +11,15 @@ export class IdiomItemComponent implements OnInit {
   @Input() idiom: Idiom | undefined;
   @Input() index: number | undefined;
 
-  constructor() {
+  constructor(
+    private idiomService: IdiomService
+  ) {
   }
 
   ngOnInit(): void {
   }
 
+  selectIdiom(idiom: Idiom | undefined) {
+    this.idiomService.idiomSelect.emit(idiom);
+  }
 }
