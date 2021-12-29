@@ -22,5 +22,13 @@ export default class IdiomService {
     this.idioms = idioms;
   }
 
+  getIdiom(id: string | undefined): Idiom | undefined {
+    for (let idiom of this.idioms) {
+      if (id === idiom.id) {
+        return idiom;
+      }
+    }
+    return undefined;
+  }
 
 }

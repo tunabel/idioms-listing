@@ -5,12 +5,13 @@ import {IdiomListComponent} from "./idioms/idiom-list/idiom-list.component";
 import {IdiomDetailComponent} from "./idioms/idiom-detail/idiom-detail.component";
 import {IdiomEditComponent} from "./idioms/idiom-edit/idiom-edit.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {IdiomsComponent} from "./idioms/idioms.component";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {
-    path: 'idioms', component: IdiomListComponent, children: [
-      {path: 'new', component: IdiomDetailComponent},
+    path: 'idioms', component: IdiomsComponent, children: [
+      {path: '', component: IdiomListComponent},
       {path: ':id', component: IdiomDetailComponent},
       {path: ':id/edit', component: IdiomEditComponent}
     ]

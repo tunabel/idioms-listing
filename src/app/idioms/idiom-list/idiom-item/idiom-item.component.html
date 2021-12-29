@@ -2,5 +2,6 @@
   <p>idiom-item works!</p>
   <p>{{ idiom?.espPhrase }}</p>
   <p>Translation: {{idiom?.vietPhrase }}</p>
-  <a (click)="selectIdiom(idiom)" href="#">Go to details</a>
+  <a [routerLink]=[idiom?.id] href="#"
+  >Go to details</a>
 </div>
