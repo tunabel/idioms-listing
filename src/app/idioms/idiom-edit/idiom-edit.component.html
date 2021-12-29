@@ -1,1 +1,24 @@
-<p>idiom-edit works!</p>
+<p>
+  Let's edit some idioms!
+</p>
+
+<form (ngSubmit)="submitEditForm()" [formGroup]="editForm">
+  <label for="espPhrase">Spanish phrase: </label>
+  <input formControlName="espPhrase" id="espPhrase" type="text">
+  <br>
+  <label for="espMeaning">Spanish Meaning: </label>
+  <input formControlName="espMeaning" id="espMeaning" type="text">
+  <div formArrayName="vietPhrases">
+    <span>Viet Phrases</span>
+    <div *ngFor="let vietPhrase of vietPhraseArray!.controls; let i = index">
+      <label for="vietPhrase-{{i}}">phrase {{i + 1}}: </label>
+      <input [formControlName]="i" id="vietPhrase-{{i}}" type="text">
+    </div>
+  </div>
+  <button (click)="addMoreVietPhrase()" type="button">+</button>
+  <br>
+  <label for="ratings">Ratings</label>
+  <input formControlName="ratings" id="ratings" max="5" min="0" type="range">
+  <br>
+  <button type="submit">Save</button>
+</form>

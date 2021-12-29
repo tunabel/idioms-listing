@@ -16,6 +16,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AboutUsComponent} from './about-us/about-us.component';
 import IdiomService from "./services/idiom.service";
 import {NotFoundComponent} from './not-found/not-found.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {NotFoundComponent} from './not-found/not-found.component';
   imports: [
     BrowserModule,
     NoopAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [IdiomService],
   bootstrap: [AppComponent]

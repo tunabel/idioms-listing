@@ -31,4 +31,8 @@ export class IdiomDetailComponent implements OnInit {
       this.router.navigate(['/idioms']);
     }
   }
+
+  editIdiom() {
+    this.router.navigate(['edit'], {relativeTo: this.route})
+  }
 }
