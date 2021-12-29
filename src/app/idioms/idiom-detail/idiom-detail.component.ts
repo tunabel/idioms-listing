@@ -12,20 +12,23 @@ export class IdiomDetailComponent implements OnInit {
   idiom: Idiom | undefined;
   id: string | undefined;
 
-
   constructor(
     private idiomService: IdiomService,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
-    this.activeRoute.params
+    this.route.params
       .subscribe((params: Params) => {
         this.id = params['id'];
         this.idiom = this.idiomService.getIdiom(this.id);
       });
-  }
 
+    if (this.idiom == undefined) {
+      alert("no idiom found. redirecting..");
+      this.router.navigate(['/idioms']);
+    }
+  }
 }

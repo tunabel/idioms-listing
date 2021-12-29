@@ -6,6 +6,7 @@ import {IdiomDetailComponent} from "./idioms/idiom-detail/idiom-detail.component
 import {IdiomEditComponent} from "./idioms/idiom-edit/idiom-edit.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {IdiomsComponent} from "./idioms/idioms.component";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,9 @@ const appRoutes: Routes = [
       {path: ':id/edit', component: IdiomEditComponent}
     ]
   },
-  {path: 'about-us', component: AboutUsComponent}
+  {path: 'about-us', component: AboutUsComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: '**', redirectTo: 'not-found'}
 ]
 
 @NgModule({

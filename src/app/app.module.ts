@@ -15,6 +15,7 @@ import {IdiomEditComponent} from './idioms/idiom-edit/idiom-edit.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {AboutUsComponent} from './about-us/about-us.component';
 import IdiomService from "./services/idiom.service";
+import {NotFoundComponent} from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import IdiomService from "./services/idiom.service";
     IdiomSearchComponent,
     IdiomItemComponent,
     IdiomEditComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
