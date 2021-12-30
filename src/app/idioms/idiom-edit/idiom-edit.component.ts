@@ -14,6 +14,7 @@ export class IdiomEditComponent implements OnInit {
   idiom!: Idiom;
   id: string | undefined;
   vietPhraseArray: FormArray = new FormArray([]);
+  isAddNew = false;
 
   constructor(
     private idiomService: IdiomService,
@@ -26,8 +27,13 @@ export class IdiomEditComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id'];
-        this.idiom = this.idiomService.getIdiom(this.id)!;
-        let vietPhrases = this.idiom?.vietPhrase.map(
+        if (this.id == null) {
+          this.idiom = new Idiom('', '', '', [], 0);
+          this.isAddNew = true;
+        } else {
+          this.idiom = this.idiomService.getIdiom(this.id)!;
+        }
+        let vietPhrases = this.idiom.vietPhrase.map(
           phrase => phrase === undefined ? new FormControl('') : new FormControl(phrase)
         );
         this.editForm = new FormGroup({
@@ -56,5 +62,9 @@ export class IdiomEditComponent implements OnInit {
 
     console.log(this.idiom);
     this.idiomService.saveIdiom(this.idiom);
+
+    if (this.isAddNew) {
+      this.editForm.reset();
+    }
   }
 }

@@ -40,7 +40,8 @@ export default class IdiomService {
         return;
       }
     }
-    idiom.id = String(this.curId++);
+    this.curId++;
+    idiom.id = String(this.curId);
     this.idioms.push(idiom);
   }
 

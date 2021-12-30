@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Idiom} from "../idiom.model";
 import IdiomService from "../../services/idiom.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-idiom-list',
@@ -11,7 +12,9 @@ export class IdiomListComponent implements OnInit {
   idioms: Idiom[] | undefined;
 
   constructor(
-    private idiomService: IdiomService
+    private idiomService: IdiomService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
 
   }
@@ -20,4 +23,7 @@ export class IdiomListComponent implements OnInit {
     this.idioms = this.idiomService.getIdioms();
   }
 
+  addNewIdiom() {
+    this.router.navigate(['add'], {relativeTo: this.route});
+  }
 }

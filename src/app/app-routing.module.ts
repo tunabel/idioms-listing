@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   {
     path: 'idioms', component: IdiomsComponent, children: [
       {path: '', component: IdiomListComponent},
+      {path: 'add', component: IdiomEditComponent},
       {path: ':id', component: IdiomDetailComponent},
       {path: ':id/edit', component: IdiomEditComponent}
     ]
