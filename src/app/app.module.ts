@@ -18,6 +18,7 @@ import IdiomService from "./services/idiom.service";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
+import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {AuthService} from "./services/auth.service";
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [IdiomService, AuthService],
+  providers: [IdiomService, AuthService, AuthAddEditIdiomGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

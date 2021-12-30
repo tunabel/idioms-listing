@@ -7,15 +7,16 @@ import {IdiomEditComponent} from "./idioms/idiom-edit/idiom-edit.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {IdiomsComponent} from "./idioms/idioms.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {
     path: 'idioms', component: IdiomsComponent, children: [
       {path: '', component: IdiomListComponent},
-      {path: 'add', component: IdiomEditComponent},
+      {path: 'add', canActivate: [AuthAddEditIdiomGuardService], component: IdiomEditComponent},
       {path: ':id', component: IdiomDetailComponent},
-      {path: ':id/edit', component: IdiomEditComponent}
+      {path: ':id/edit', canActivate: [AuthAddEditIdiomGuardService], component: IdiomEditComponent}
     ]
   },
   {path: 'about-us', component: AboutUsComponent},
