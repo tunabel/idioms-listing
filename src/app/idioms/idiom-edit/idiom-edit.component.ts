@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import IdiomService from "../../services/idiom.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router, UrlTree} from "@angular/router";
 import {Idiom} from "../idiom.model";
 import {FormArray, FormControl, FormGroup} from "@angular/forms";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-idiom-edit',
@@ -15,6 +16,7 @@ export class IdiomEditComponent implements OnInit {
   id: string | undefined;
   vietPhraseArray: FormArray = new FormArray([]);
   isAddNew = false;
+  changesSaved = false;
 
   constructor(
     private idiomService: IdiomService,
@@ -62,9 +64,17 @@ export class IdiomEditComponent implements OnInit {
 
     console.log(this.idiom);
     this.idiomService.saveIdiom(this.idiom);
-
+    this.changesSaved = true;
     if (this.isAddNew) {
       this.editForm.reset();
+    }
+  }
+
+  canDeactivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.editForm.dirty && !this.changesSaved) {
+      return confirm('Do you want to discard changes?');
+    } else {
+      return true;
     }
   }
 }

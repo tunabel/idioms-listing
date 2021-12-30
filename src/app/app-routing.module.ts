@@ -8,6 +8,7 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {IdiomsComponent} from "./idioms/idioms.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service";
+import {CanDeactivateGuardService} from "./idioms/idiom-edit/can-deactivate-guard.service";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,12 @@ const appRoutes: Routes = [
       {path: '', component: IdiomListComponent},
       {path: 'add', canActivate: [AuthAddEditIdiomGuardService], component: IdiomEditComponent},
       {path: ':id', component: IdiomDetailComponent},
-      {path: ':id/edit', canActivate: [AuthAddEditIdiomGuardService], component: IdiomEditComponent}
+      {
+        path: ':id/edit',
+        canActivate: [AuthAddEditIdiomGuardService],
+        component: IdiomEditComponent,
+        canDeactivate: [CanDeactivateGuardService]
+      }
     ]
   },
   {path: 'about-us', component: AboutUsComponent},

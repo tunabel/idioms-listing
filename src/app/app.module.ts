@@ -19,6 +19,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service";
+import {CanDeactivateGuardService} from "./idioms/idiom-edit/can-deactivate-guard.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service"
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [IdiomService, AuthService, AuthAddEditIdiomGuardService],
+  providers: [IdiomService, AuthService, AuthAddEditIdiomGuardService, CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
