@@ -17,6 +17,7 @@ import {AboutUsComponent} from './about-us/about-us.component';
 import IdiomService from "./services/idiom.service";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [IdiomService],
+  providers: [IdiomService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

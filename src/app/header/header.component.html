@@ -7,4 +7,9 @@
 <div>
   <a class="" href="#" routerLink="/about-us">About Us</a>
 </div>
+<button (click)="logIn()" *ngIf="!isUserLoggedIn; else isUserLoggedOut">Log In</button>
+<ng-template #isUserLoggedOut>
+  <button (click)="logOut()">Log Out</button>
+  <p>User Avatar</p>
+</ng-template>
 
