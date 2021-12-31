@@ -20,6 +20,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {AuthAddEditIdiomGuardService} from "./auth-add-edit-idiom-guard.service";
 import {CanDeactivateGuardService} from "./idioms/idiom-edit/can-deactivate-guard.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {CanDeactivateGuardService} from "./idioms/idiom-edit/can-deactivate-guar
     NoopAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [IdiomService, AuthService, AuthAddEditIdiomGuardService, CanDeactivateGuardService],
   bootstrap: [AppComponent]

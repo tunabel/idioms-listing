@@ -18,7 +18,7 @@
   <button (click)="addMoreVietPhrase()" type="button">+</button>
   <br>
   <label for="ratings">Ratings</label>
-  <input formControlName="ratings" id="ratings" max="5" min="0" type="range">
+  <input disabled id="ratings" max="5" min="0" type="range" value="{{idiom.ratings}}">
   <br>
   <button type="submit">Save</button>
 </form>

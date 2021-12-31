@@ -23,7 +23,7 @@ export class IdiomDetailComponent implements OnInit {
     this.route.params
       .subscribe((params: Params) => {
         this.id = params['id'];
-        this.idiom = this.idiomService.getIdiom(this.id);
+        this.idiom = this.idiomService.getIdiom(this.id!);
       });
 
     if (this.idiom == undefined) {

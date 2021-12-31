@@ -41,7 +41,6 @@ export class IdiomEditComponent implements OnInit {
         this.editForm = new FormGroup({
           'espPhrase': new FormControl(this.idiom?.espPhrase),
           'espMeaning': new FormControl(this.idiom?.espMeaning),
-          'ratings': new FormControl(this.idiom?.ratings),
           'vietPhrases': new FormArray(vietPhrases!)
         });
         this.vietPhraseArray = (<FormArray>this.editForm.get('vietPhrases'));
@@ -55,18 +54,19 @@ export class IdiomEditComponent implements OnInit {
   }
 
   submitEditForm() {
-    this.idiom.ratings = this.editForm.get('ratings')?.value;
     this.idiom.espMeaning = this.editForm.get('espMeaning')?.value;
     this.idiom.espPhrase = this.editForm.get('espPhrase')?.value;
     this.idiom.vietPhrase = this.vietPhraseArray.controls.map(
       control => control.value
     );
 
-    console.log(this.idiom);
     this.idiomService.saveIdiom(this.idiom);
     this.changesSaved = true;
+    alert('data saved');
     if (this.isAddNew) {
       this.editForm.reset();
+    } else {
+      this.router.navigate(['.'], {relativeTo: this.route.parent})
     }
   }
 
